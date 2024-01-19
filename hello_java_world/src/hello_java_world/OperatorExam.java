@@ -37,7 +37,7 @@ public class OperatorExam {
 		isNotMultiple3 = !(e % 3 == 0);   //¹æ¹ý2
 		System.out.println(isNotMultiple3); //true
 
-
+ 
 
 	}
 

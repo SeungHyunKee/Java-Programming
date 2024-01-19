@@ -93,21 +93,21 @@ public class FamilyTravel {
 		}*/
 	    
 		
-		// 풀이3 : 삼항연산자로 푸는 방법
-		// father의 값이 19보다 크거나 같다면 adultOnewayFlightFare를 할당하고, 
-		// 그렇지 않다면 kidOnewayFlightFare를 할당한다. 
-		// 삼항연산자 문법 - 조건? 조건이 true일때 값 : 조건이 false일때 값
-//		int flightFare = 0;
-//		flightFare += father >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
-//		flightFare += mother >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
-//		flightFare += daughter >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
-//
-//		if(flightFare <= money) {
-//			System.out.println("여행가자!");
-//		}
-//		else {
-//			System.out.println("다음에 가자ㅠㅠ");
-//		}
+//		 풀이3 : 삼항연산자로 푸는 방법
+//		 father의 값이 19보다 크거나 같다면 adultOnewayFlightFare를 할당하고, 
+//		 그렇지 않다면 kidOnewayFlightFare를 할당한다. 
+//		 삼항연산자 문법 - 조건? 조건이 true일때 값 : 조건이 false일때 값
+		int flightFare = 0;
+		flightFare += father >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
+		flightFare += mother >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
+		flightFare += daughter >= 19 ? adultOnewayFlightFare : kidOnewayFlightFare;
+
+		if(flightFare <= money) {
+			System.out.println("여행가자!");
+		}
+		else {
+			System.out.println("다음에 가자ㅠㅠ");
+		}
 	}
 
 }

@@ -1,6 +1,8 @@
 package hello_java_world;
 
 public class HelloJava {
+	
+	//주석의 종류
 	/**
 	 * Document(주석)
 	 * 주석 : 코드의 설명을 위한 영역, 코드 실행과는 관계가 없음

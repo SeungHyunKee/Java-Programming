@@ -10,7 +10,7 @@ public class ArtithmaticProblem1 {
 
 		int time = minutes * 60 + seconds;
 			
-		System.out.println(time);
+		System.out.println(time);  
 		
 	}
 

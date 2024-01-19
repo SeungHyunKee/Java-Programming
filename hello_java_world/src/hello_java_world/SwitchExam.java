@@ -11,7 +11,7 @@ public class SwitchExam {
 			// 현재상태값(value)의 값이 0이라면 여기부터 시작해라 
 			case 0:
 				System.out.println("현재 상태값은 0입니다.");
-
+ 
 			// 현재상태값(value)의 값이 1이라면 여기부터 시작해라 
 			case 1:
 				System.out.println("현재 상태값은 1입니다.");

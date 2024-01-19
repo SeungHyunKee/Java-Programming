@@ -10,8 +10,8 @@ public class ArtithmaticProblem2 {
 		
 		//processTime을 분, 초를 구한다음 minutes, seconds변수에 할당하고 출력
 		minutes = processTime / 60;
-		seconds = processTime % 60;
-		
+		seconds = processTime % 60; 
+		  
 		System.out.println(minutes);
 		System.out.println(seconds);
 	}

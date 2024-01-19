@@ -13,7 +13,7 @@ public class ScoreAverage {
 		
 		if (average >= 95) {
 			System.out.println("A+");
-		}
+		} 
 		else if (average >= 90) {
 			System.out.println("A");
 		}

@@ -42,7 +42,7 @@ public class IfExam1 {
 		//double 타입의 난수를 정수로 변환 : 0~99
 		int answer = (int)(randomNumber * 100);
 		int value = 60;
-		
+		 
 		if(answer == value) {
 			System.out.println("정답입니다!");
 		}
