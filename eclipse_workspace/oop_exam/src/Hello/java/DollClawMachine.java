@@ -11,10 +11,9 @@ public class DollClawMachine {
 	}
 
 	public int doGame() {
-
 		if (isInsertCoin) {
 			// Math.random()으로 0,1중 하나 랜덤하게 생성
-			double randomNumber = Math.random();
+			double randomNumber = Math.random(); //0.xxxx ~ 0.9xxx
 			int result = (int) ((randomNumber * 10) % 2);
 			if (result == 1) {
 				System.out.println("인형을 뽑았습니다.");
