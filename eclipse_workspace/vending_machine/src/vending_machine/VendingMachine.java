@@ -13,7 +13,7 @@ public class VendingMachine {
 	// -> static block
 	static {
 		// static변수, 상수의 값을 초기화 하는 공간
-		PRODUCT_COUNT = 2;
+		PRODUCT_COUNT = 1;
 		MACHINE_NAME = "자판기";
 	}
 	
@@ -45,19 +45,22 @@ public class VendingMachine {
 	
 	
 	// 생성자 자리 (생성자는 반환타입이 들어가지 않음)
+	// 돈을 안넣어줄경우, 100_000 이 생기는 자판기 생성됨
 		/**
 		 * VendingMachine의 인스턴스를 생성할때 호출됨
 		*/
 	public VendingMachine() {
+		this(100_000);
 		System.out.println("자판기 인스턴스를 만들었습니다!");
 		// 생성자가 만들어준 인스턴스의 멤버변수에 값을 할당한다 (=초기화)
 //		this.productQuantity = 10;
-		this.product = new Product();
-		this.product.setName("제로콜라");
-		this.product.setPrice(1600);
-		this.product.setQuantity(50);
-
-		this.money = 100_000;
+//		this.product = new Product();
+//		this.product.setName("제로콜라");
+//		this.product.setPrice(1600);
+//		this.product.setQuantity(50);
+//
+//		this.money = 100_000;
+//		
 		/*
 		 * 생성자를 직접 만드는 이유
 		 * 1. 멤버변수를 초기화 하기 위해(멤버변수에 기본값을 별도로 할당을 하기 위해)
@@ -67,7 +70,20 @@ public class VendingMachine {
 		 *   - ex) 인스턴스를 생성함과 동시에 insertMoney메소드를 호출하기 위해
 		 */
 	}
+	
+	//생성자 오버로딩
+	// 돈을 넣어줄 경우, 돈만큼 돈이 생기는 자판기 생성됨
+	public VendingMachine(int money) {
+		this.money = money;
 		
+		this.product = new Product();
+		this.product.setName("제로콜라");
+		this.product.setPrice(1600);
+		this.product.setQuantity(50);
+		
+	}
+	
+	
 	//기능
 	/**
 	 * 돈을 넣는다
@@ -85,26 +101,46 @@ public class VendingMachine {
 	}
 		
 		/**
-		 * 버튼을 누른다
+		 * 버튼을 누른다, 상수 PRODUCT_COUNT에 의해 1개씩 파는것
 		 * @param customer 버튼을 누른 고객
 		 */
 	public void pressButton(Customer customer) {
+//		// 자판기에 상품이 없는상태
+////		if (productQuantity <= 0) {
+//		if(this.product.getQuantity() <= 0) {
+//			return; //메소드 즉시종료
+//		}
+//	
+////		this.productQuantity--;
+////		this.product.quantity--;
+//		int quantity = this.product.getQuantity();
+//		quantity--;
+//		
+//		quantity -= VendingMachine.PRODUCT_COUNT;  //상품을 1개 팔겠다는 것
+//		this.product.setQuantity(quantity);
+//		customer.addStock(this.product.getName(), this.product.getPrice());
+		
+		// 위의 코드는 아래 한줄로 메소드체이닝 할수있음
+		this.pressButton(customer, VendingMachine.PRODUCT_COUNT);
+	}
+
+	//메소드 오버로딩
+	// orderCount에 의해 이 값 만큼 파는것
+	public void pressButton(Customer customer, int orderCount) {
 		// 자판기에 상품이 없는상태
-//		if (productQuantity <= 0) {
 		if(this.product.getQuantity() <= 0) {
 			return; //메소드 즉시종료
 		}
 	
-//		this.productQuantity--;
-//		this.product.quantity--;
 		int quantity = this.product.getQuantity();
-		quantity--;
-		
-		quantity -= VendingMachine.PRODUCT_COUNT;
+		//quantity--;
+		quantity -= orderCount;  //상품을 1개 팔겠다는 것
 		this.product.setQuantity(quantity);
-		customer.addStock(this.product.getName(), this.product.getPrice());
+		
+		customer.addStock(this.product.getName(), this.product.getPrice(), orderCount);
 			
+	
+		
 	}
-
 
 }

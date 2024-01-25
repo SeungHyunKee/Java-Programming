@@ -47,6 +47,38 @@ public class Customer {
 	 * 상품이 하나 증가한다
 	 */
 	public void addStock(String name, int price) {
+//		//this.stock++;
+//		// 고객이 제로콜라를 구매한 적이 있는지 확인 (구매한적 없다면 데이터 및 수량만 증가시킴)	
+//		// 고객이 제로콜라 구매한적이 없다면
+//		
+//		// 값을 가져올때는 Getter
+//		if(this.product.getName() == null) {
+//			// 고객이가진 상품의정보를 제로콜라로 채워줌
+//			
+////			this.product.name = name;
+////			this.product.price = price;
+////			this.product.quantity = 1;
+//			
+//			// 값을 할당할때는 Setter
+//			this.product.setName(name);
+//			this.product.setPrice(price);
+////			this.product.setQuantity(1);
+//			this.product.setQuantity(VendingMachine.PRODUCT_COUNT);
+//		}
+//		// 고객이 제로콜라 구매한적이 있다면(= null이 아니라면) -> (구매한적 있다면 수량만 증가시킴)
+//		else {
+//			// 고객이가진 제로콜라의 수량을 1개 증가 시킴
+//			//this.product.quantity++; -> 아래3줄로 풀어서 씀
+//			int quantity = this.product.getQuantity();
+////			quantity++;
+//			quantity += VendingMachine.PRODUCT_COUNT;
+//			this.product.setQuantity(quantity);	
+//		}		
+		this.addStock(name, price, VendingMachine.PRODUCT_COUNT);
+	}
+
+	//메소드 오버로딩
+	public void addStock(String name, int price, int productCount) {
 		//this.stock++;
 		// 고객이 제로콜라를 구매한 적이 있는지 확인 (구매한적 없다면 데이터 및 수량만 증가시킴)	
 		// 고객이 제로콜라 구매한적이 없다면
@@ -54,16 +86,11 @@ public class Customer {
 		// 값을 가져올때는 Getter
 		if(this.product.getName() == null) {
 			// 고객이가진 상품의정보를 제로콜라로 채워줌
-			
-//			this.product.name = name;
-//			this.product.price = price;
-//			this.product.quantity = 1;
-			
 			// 값을 할당할때는 Setter
 			this.product.setName(name);
 			this.product.setPrice(price);
 //			this.product.setQuantity(1);
-			this.product.setQuantity(VendingMachine.PRODUCT_COUNT);
+			this.product.setQuantity(productCount);
 		}
 		// 고객이 제로콜라 구매한적이 있다면(= null이 아니라면) -> (구매한적 있다면 수량만 증가시킴)
 		else {
@@ -71,11 +98,8 @@ public class Customer {
 			//this.product.quantity++; -> 아래3줄로 풀어서 씀
 			int quantity = this.product.getQuantity();
 //			quantity++;
-			quantity += VendingMachine.PRODUCT_COUNT;
+			quantity += productCount;
 			this.product.setQuantity(quantity);
 			
 		}
-		
-	}
-
-}
+}}

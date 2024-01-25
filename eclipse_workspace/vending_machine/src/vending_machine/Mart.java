@@ -44,10 +44,8 @@ public class Mart {
 		VendingMachine drinkMachine = new VendingMachine();
 		// 아래코드는 VendingMachine의 생성자에서 대체함
 //		drinkMachine.money = 3000;
-//		drinkMachine.productQuantity = 5;
+//		drinkMachine.productQuantity = 5;		
 		
-//		VendingMachine snackMachine = new VendingMachine();
-
 		Customer musk = new Customer(200_000);
 		// 아래코드는 Customer의 생성자에서 대체함
 //		musk.wallet = 10000; // 값이 할당 안되었을때 줬던 초기값
@@ -55,7 +53,7 @@ public class Mart {
 		
 		// 파라미터 영역에 누가 행동을 할건지 적어줌
 		drinkMachine.insertMoney(musk);
-		drinkMachine.pressButton(musk);
+		drinkMachine.pressButton(musk); // 1개 사는것
 		
 //		drinkMachine.insertMoney(musk);
 //		drinkMachine.pressButton(musk);
@@ -66,6 +64,17 @@ public class Mart {
 		System.out.println("고객의 지갑 잔액: " + musk.getWallet());
 		System.out.println("자판기에 남은 상품 수량: " + musk.getProduct().getQuantity());
 	
+		//메소드 오버로딩한거 사용해보기
+		VendingMachine snackMachine = new VendingMachine(400);
+		snackMachine.insertMoney(musk);
+		snackMachine.pressButton(musk, 4); // 한번에 4개사는것
+		
+		System.out.println("자판기의 잔액: " + snackMachine.getMoney());
+		System.out.println("자판기의 상품 수량: " + snackMachine.getProduct().getQuantity());
+		System.out.println("자판기의 상품 이름: " + snackMachine.getProduct().getName());
+		System.out.println("고객의 지갑 잔액: " + musk.getWallet());
+		System.out.println("자판기에 남은 상품 수량: " + musk.getProduct().getQuantity());
+
 		
 	}
 
