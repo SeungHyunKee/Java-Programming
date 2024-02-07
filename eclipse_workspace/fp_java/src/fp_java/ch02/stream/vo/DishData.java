@@ -1,0 +1,20 @@
+package fp_java.ch02.stream.vo;
+
+import java.util.Arrays;
+import java.util.List;
+
+public interface DishData {
+
+	public List<Dish> menu = Arrays.asList(  //이렇게하면 하단에 있는것들이 전부 menu에 담김
+							// Arrays.asList( 대신 List.of( 써도 됨(자바10, 버전차이)
+            new Dish("pork", false, 800, Dish.Type.MEAT), 
+            new Dish("beef", false, 700, Dish.Type.MEAT), 
+            new Dish("chicken", false, 400, Dish.Type.MEAT), 
+            new Dish("french fries", true, 530, Dish.Type.OTHER), 
+            new Dish("rice", true, 350, Dish.Type.OTHER), 
+            new Dish("season fruit", true, 120, Dish.Type.OTHER), 
+            new Dish("pizza", false, 550, Dish.Type.OTHER), 
+            new Dish("prawns", false, 300, Dish.Type.FISH), 
+            new Dish("salmon", false, 450, Dish.Type.FISH));
+}
+
